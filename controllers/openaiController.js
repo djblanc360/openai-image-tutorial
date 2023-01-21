@@ -6,16 +6,21 @@ const configuration = new Configuration({
 const openai = new OpenAIApi(configuration);
 
 const generateImage = async (req, res) => {
+    console.log('req.body',req.body)
     const { prompt, size } = req.body
-
-    const  imageSize =
-        size === 'small' ? '256x256' : size === 'medium' ? '512x512' :  '1024x124'
-
     try {
+
+        
+    
+        const imageSize =
+            size === 'small' ? '256x256' : size === 'medium' ? '512x512' : '1024x1024'
+
+        console.log(prompt, imageSize)
+
         const response = await openai.createImage({
-            prompt, // query from form
+            prompt: prompt, // query from form
             n: 1, // number of images
-            size: '512x512'
+            size:imageSize
         })
         const imageUrl = response.data.data[0].url
         res.status(200).json({

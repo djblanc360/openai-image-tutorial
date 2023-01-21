@@ -35,3 +35,8 @@ const configuration = new Configuration({
   apiKey: process.env.OPENAI_API_KEY,
 });
 const openai = new OpenAIApi(configuration);
+
+
+==============================		===========================
+
+[Wide openfields with clouds in the sky]::3 [house in the distance]::1, artstation, unreal-engine --q 2
